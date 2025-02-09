@@ -34,7 +34,7 @@ Note : Don't forget Install extensions ' vetur ' in visual studio code and Insta
 ```cmd
 npm i 
 ```
-Note : Don't forget Install Node.js
+Note : Don't forget Install Node.js<br>
 หมายเหตุ : อย่าลืมติดตั้ง Node.js<br> 
 
 ## 3.Install PgAdmin
