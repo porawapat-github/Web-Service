@@ -1,9 +1,13 @@
 # Web Technology and Web Services Final Project 
 - Subject : Web Technology and Web Services
 - Detail : Room Reservation
-- Type : Group Project
+- Type : Group Project<br>
 
-<br>
+- วิชาเรียน : เว็บเทคโนโลยีและเว็บบริการ
+- รายละเอียด : การจองห้องพัก
+- ประเภท : โครงการกลุ่ม<br>
+  
+
 
 # Objective
 Learn about Front-end and Back-end How to connect database understand concept about Web Technology and Web Services.
@@ -26,6 +30,7 @@ Learn about Front-end and Back-end How to connect database understand concept ab
 git clone https://github.com/DevPeeramate/Web_Technology.git
 ```
 Note : Don't forget Install extensions ' vetur ' in visual studio code and Install git
+       อย่าลืมติดตั้งส่วนขยาย ' vetur ' ใน Visual Studio Code และติดตั้ง git
 
 <br>
 
