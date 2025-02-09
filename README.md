@@ -29,7 +29,7 @@ Learn about Front-end and Back-end How to connect database understand concept ab
 ```cmd
 git clone https://github.com/DevPeeramate/Web_Technology.git
 ```
-Note : Don't forget Install extensions ' vetur ' in visual studio code and Install git
+Note : Don't forget Install extensions ' vetur ' in visual studio code and Install git<br>
        อย่าลืมติดตั้งส่วนขยาย ' vetur ' ใน Visual Studio Code และติดตั้ง git
 
 <br>
