@@ -8,6 +8,8 @@
 # Objective
 Learn about Front-end and Back-end How to connect database understand concept about Web Technology and Web Services.
 
+เรียนรู้เกี่ยวกับ Front-end และ Back-end วิธีการเชื่อมต่อฐานข้อมูล ทำความเข้าใจแนวคิดเกี่ยวกับเทคโนโลยีเว็บและบริการเว็บ
+
 <br>
 
 # How to start
