@@ -14,7 +14,8 @@
             class="form-control"
             id="username"
             autocomplete="off"
-            required v-model.trim="username"
+            required
+            v-model.trim="username"
             placeholder="Enter your username"
           />
         </div>
@@ -29,25 +30,27 @@
             placeholder="Enter your password"
           />
         </div>
-         <div class="form-group">
+        <div class="form-group">
           <label for="name">Name</label>
           <input
             type="text"
             class="form-control"
             id="memName"
             autocomplete="off"
-            required v-model.trim="memName"
+            required
+            v-model.trim="memName"
             placeholder="Enter your name"
           />
         </div>
-         <div class="form-group">
+        <div class="form-group">
           <label for="gender">Gender</label>
           <input
             type="text"
             class="form-control"
             id="gender"
             autocomplete="off"
-            required v-model.trim="gender"
+            required
+            v-model.trim="gender"
             placeholder="Enter your gender"
           />
         </div>
@@ -61,27 +64,31 @@
             placeholder="Enter your email"
           />
         </div>
-         <div class="form-group">
+        <div class="form-group">
           <label for="phone">Phone number</label>
           <input
             type="text"
             class="form-control"
             id="phone"
             autocomplete="off"
-            required v-model.trim="phone"
+            required
+            v-model.trim="phone"
             placeholder="Enter your phone number"
           />
         </div>
-        <button class="btn btn-primary float-end" type="submit" >
-                            <i class="bi bi-check-lg"></i>&nbsp;สมัครสมาชิก</button>
+        <button class="btn btn-primary float-end" type="submit">
+          <i class="bi bi-check-lg"></i>&nbsp;สมัครสมาชิก
+        </button>
         <div class="login-link">
           มีบัญชีอยู่แล้วใช่ไหม <a href="/login">เข้าสู่ระบบ</a>
         </div>
       </form>
-      <p v-if="backendMessage=='success'" class="alert alert-success mt-3">
-                ลงทะเบียนสำเร็จ {{ backendMessage }}</p>
-            <p v-else-if="backendMessage=='fail'" class="alert alert-danger mt-3">
-                Username has been used {{ backendMessage }}</p>
+      <p v-if="backendMessage == 'success'" class="alert alert-success mt-3">
+        ลงทะเบียนสำเร็จ {{ backendMessage }}
+      </p>
+      <p v-else-if="backendMessage == 'fail'" class="alert alert-danger mt-3">
+        Username has been used {{ backendMessage }}
+      </p>
     </div>
   </div>
 </template>
@@ -112,16 +119,19 @@ export default {
         password: this.password,
       };
       try {
-        const response = await axios.post(`http://localhost:3000/register`, members);
+        const response = await axios.post(
+          `http://localhost:3000/register`,
+          members
+        );
         this.backendMessage = response.data.messageRegister;
-        if(this.backendMessage == "success"){
+        if (this.backendMessage == "success") {
           window.alert("Register Success");
-          this.$router.push('/login')
-        }else{
-          window.alert("Failed to register. Username has been used")
+          this.$router.push("/login");
+        } else {
+          window.alert("Failed to register. Username has been used");
         }
       } catch (err) {
-          console.log(err);
+        console.log(err);
       }
     },
   },

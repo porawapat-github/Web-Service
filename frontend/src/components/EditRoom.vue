@@ -109,40 +109,6 @@
               {{ fileMessage }}
             </div>
           </div>
-
-          <!-- <div v-if="isMore === true">
-              <form @submit.prevent="uploadFile" class="edit-rooms">
-                <div class="mb-3">
-                  <input
-                    class="form-control mb-3"
-                    type="file"
-                    @change="onFileChange"
-                  />
-                </div>
-                <div class="d-flex justify-content-center gap-2">
-                  <button class="btn btn-sm btn-primary" type="submit">
-                    Upload
-                  </button>
-                  <button @click="submit()" class="btn btn-xs btn-danger">
-                    <i class="bi bi-check-lg"></i>&nbsp;Submit
-                  </button>
-                  <button @click="DontShow()" class="btn btn-xs btn-secondary">
-                    Cancel
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div class="action-section mt-4 text-center">
-              <div v-if="isMore === false">
-                <button @click="IsShow()" class="btn btn-xs btn-primary">
-                  แก้ไข Rooms
-                </button>
-              </div>
-            </div> -->
-
-          <!-- <div v-if="fileMessage" class="alert alert-success mt-3">
-              {{ fileMessage }}
-            </div> -->
         </div>
       </div>
     </form>
@@ -156,8 +122,6 @@ export default {
   name: "EditRoom",
   data() {
     return {
-      // earthRoomId: null,
-      // floor: null,
       roomId: null,
       roomName: null,
       roomSize: null,
@@ -170,8 +134,7 @@ export default {
       imageExists: false,
       fileMessage: null,
       file: null,
-      imageTimestamp: Date.now(), // ใช้เป็น query parameter
-      // roomData: null
+      imageTimestamp: Date.now(), // ใช้เป็น query parameter ในการโหลดรูปภาพ
     };
   },
   async mounted() {
@@ -188,8 +151,6 @@ export default {
         this.roomPrice = this.roomData[0].roomPrice;
         this.roomStatus = this.roomData[0].roomStatus;
         this.checkImage();
-        // this.imageTimestamp = Date.now();
-        // console.log(this.roomData[0]);
       })
       .catch((err) => {
         console.error(err);
@@ -267,21 +228,6 @@ export default {
       } catch (err) {
         console.log(err);
       }
-
-      // axios
-      //   .put(`http://localhost:3000/admin/putRoom/${this.dataId}`, {
-
-      //     roomName: this.roomName,
-      //     roomSize: this.roomSize,
-      //     roomDetail: this.roomDetail,
-      //   })
-      //   .then((res) => {
-      //     console.log(res.data);
-      //     this.roomData = res.data;
-      //   })
-      //   .catch((err) => {
-      //     console.error(err);
-      //   });
     },
   },
 };
@@ -346,7 +292,6 @@ export default {
 .btn {
   margin-left: 10px; /* เพิ่มระยะห่างระหว่างปุ่ม */
 }
-
 
 .upload {
   background: linear-gradient(45deg, #f19b55, #ec4b1a, #ee2424);

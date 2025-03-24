@@ -5,7 +5,12 @@
 
     <div class="container">
       <div class="search-bar d-flex justify-content-end mb-4">
-        <input v-model="stext" type="text" class="search-input" placeholder="Search..." />
+        <input
+          v-model="stext"
+          type="text"
+          class="search-input"
+          placeholder="Search..."
+        />
 
         <button class="btn btn-primary search-btn me-2" @click="searchRoom()">
           ค้นหา
@@ -18,7 +23,6 @@
         <router-link to="/AdminHome" style="text-decoration: none">
           <button class="btn btn-menu">Menu</button>
         </router-link>
-
       </div>
 
       <table class="table table-bordered table-hover">
@@ -72,7 +76,6 @@ export default {
       username: null,
       role: null,
       memName: null,
-      // role: null,
     };
   },
   mounted() {
@@ -157,7 +160,7 @@ export default {
 }
 
 /* ------------------------------------------ search ------------------------------------------*/
-/* From Uiverse.io by mRcOol7 */ 
+/* From Uiverse.io by mRcOol7 */
 .search-container {
   position: relative;
   display: flex;

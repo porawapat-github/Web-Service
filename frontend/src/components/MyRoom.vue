@@ -1,7 +1,7 @@
 <template>
   <div class="myroom-container">
-  <h1>HISTORY BOOKING</h1>
-    <div v-if="reservations.length === 0" >
+    <h1>HISTORY BOOKING</h1>
+    <div v-if="reservations.length === 0">
       <p class="no-room-message">No Room</p>
     </div>
     <div
@@ -13,8 +13,7 @@
       <div class="row g-0">
         <div class="col-md-4">
           <img
-            :src="`http://localhost:3000/img_room/${room.roomId}_${room
-        .roomName}.jpg`"
+            :src="`http://localhost:3000/img_room/${room.roomId}_${room.roomName}.jpg`"
             class="img-fluid rounded-start"
             alt="Room Image"
           />
@@ -34,7 +33,11 @@
               <strong>ราคาห้อง:</strong> {{ room.totalPrice }}
             </p>
             <div class="button-container d-flex justify-content-between my-3">
-              <button @click="deleteReservation(room.bookId)" class="btn btn-danger" style="width: 100px">
+              <button
+                @click="deleteReservation(room.bookId)"
+                class="btn btn-danger"
+                style="width: 100px"
+              >
                 ยกเลิก
               </button>
             </div>
@@ -75,16 +78,7 @@ export default {
           console.log(error);
         });
     },
-    // fetchRooms() {
-    //   axios
-    //     .get("http://localhost:3000/admin/AllRoom") // เปลี่ยน URL ให้ตรงกับ Backend ของคุณ
-    //     .then((res) => {
-    //       this.rooms = res.data;
-    //     })
-    //     .catch((error) => {
-    //       console.error("Error!", error);
-    //     });
-    // },
+
     async chkSession() {
       try {
         await axios.get(`http://localhost:3000/session`).then((res) => {
@@ -107,12 +101,13 @@ export default {
     deleteReservation(id) {
       console.log(id);
       if (confirm("คุณต้องการยกเลิกการจองนี้หรือไม่?")) {
-       
         axios
           .delete(`http://localhost:3000/reservation/${id}`) // ลบข้อมูลการจองที่มี ID ตรงกัน
           .then(() => {
             alert("ยกเลิกการจองสำเร็จ");
-             this.reservations = this.reservations.filter(room => room.bookId !== id);
+            this.reservations = this.reservations.filter(
+              (room) => room.bookId !== id
+            );
           })
           .catch((error) => {
             console.log(error);
@@ -127,7 +122,12 @@ export default {
 .myroom-container {
   padding: 20px;
   border-radius: 20px;
-  background: linear-gradient(45deg, #cbafff, #917aff, #7de1ff); /* สีพื้นหลังตามที่คุณกำหนด */
+  background: linear-gradient(
+    45deg,
+    #cbafff,
+    #917aff,
+    #7de1ff
+  ); /* สีพื้นหลังตามที่คุณกำหนด */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   color: #333;
 }
@@ -151,7 +151,9 @@ h1 {
 }
 
 .card:hover {
-  transform: translateY(-5px); /* เพิ่มเอฟเฟกต์เลื่อนขึ้นเล็กน้อยเมื่อชี้เมาส์ */
+  transform: translateY(
+    -5px
+  ); /* เพิ่มเอฟเฟกต์เลื่อนขึ้นเล็กน้อยเมื่อชี้เมาส์ */
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* เพิ่มเงาเมื่อ hover */
 }
 
@@ -188,7 +190,11 @@ h1 {
 }
 
 .button-container .btn-danger:hover {
-  background: linear-gradient(45deg, #ff4e50, #ff6b6b); /* เปลี่ยนเฉดเมื่อ hover */
+  background: linear-gradient(
+    45deg,
+    #ff4e50,
+    #ff6b6b
+  ); /* เปลี่ยนเฉดเมื่อ hover */
   transform: scale(1.05); /* ขยายปุ่มเล็กน้อยเมื่อ hover */
 }
 
@@ -203,5 +209,4 @@ h1 {
   max-height: 150px;
   object-fit: cover;
 }
-
 </style>

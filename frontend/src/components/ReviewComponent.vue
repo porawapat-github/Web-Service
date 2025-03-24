@@ -3,10 +3,14 @@
     <h2 class="review-title">Customer Reviews</h2>
 
     <!-- รีวิวที่มีอยู่ -->
-      <div class="review-card" v-for="review in reviews" :key="review.id">
-    <div class="review-list">
+    <div class="review-card" v-for="review in reviews" :key="review.id">
+      <div class="review-list">
         <div class="review-user-info">
-          <img :src="`http://localhost:3000/img_mem/${review.username}.jpg`" alt="User Avatar" class="avatar" />
+          <img
+            :src="`http://localhost:3000/img_mem/${review.username}.jpg`"
+            alt="User Avatar"
+            class="avatar"
+          />
           <div class="review-user-details">
             <h3 class="username">{{ review.username }}</h3>
             <div class="rating">
@@ -22,16 +26,17 @@
         </div>
         <p class="review-comment">{{ review.comment }}</p>
         <small class="review-date"
-          >Reviewed on {{ new Date(review.reviewDate).toLocaleDateString() }}</small
+          >Reviewed on
+          {{ new Date(review.reviewDate).toLocaleDateString() }}</small
         >
       </div>
     </div>
 
     <!-- ฟอร์มเพิ่มรีวิว -->
-    <div v-if="this.username == null" class ="unauthorized">
-    <h2>Access Denied</h2>
-    <p>Please login to leave a review.</p>
-  </div>
+    <div v-if="this.username == null" class="unauthorized">
+      <h2>Access Denied</h2>
+      <p>Please login to leave a review.</p>
+    </div>
     <div v-if="this.username != null" class="review-form">
       <h3>Leave Your Review</h3>
       <form @submit="submitReview">
@@ -39,7 +44,9 @@
           <label for="rating">Rating:</label>
           <select v-model="score" id="rating" required>
             <option disabled value="">Select a rating</option>
-            <option v-for="n in stars" :key="n" :value="n">{{ stars[n] }} ★</option>
+            <option v-for="n in stars" :key="n" :value="n">
+              {{ stars[n] }} ★
+            </option>
           </select>
         </div>
 
@@ -54,9 +61,8 @@
           ></textarea>
         </div>
         <div>
-          <button type="submit" class="btn-submit ">Submit Review</button>
+          <button type="submit" class="btn-submit">Submit Review</button>
         </div>
-        
       </form>
     </div>
   </div>
@@ -74,17 +80,11 @@ export default {
       score: null,
       comment: null,
       stars: [0, 1, 2, 3, 4, 5],
-      // ข้อมูลรีวิวใหม่
-      // newReview: {
-      //   rating: "",
-      //   comment: "",
-      // },
     };
   },
   async mounted() {
     this.allReviews();
     this.chkSession();
-
   },
   methods: {
     async chkSession() {
@@ -92,20 +92,15 @@ export default {
         await axios.get(`http://localhost:3000/session`).then((res) => {
           this.username = res.data.username;
           console.log(this.username);
-          // if (this.username) {
-          //   this.allReviews();
-          // }
         });
       } catch (err) {
         console.log(err);
       }
     },
     allReviews() {
-      axios
-        .get("http://localhost:3000/review")
-        .then((res) => {
-          this.reviews = res.data;
-        })
+      axios.get("http://localhost:3000/review").then((res) => {
+        this.reviews = res.data;
+      });
     },
     async submitReview() {
       let review = {
@@ -121,7 +116,6 @@ export default {
     },
   },
 };
-
 </script>
 
 <style>
@@ -141,7 +135,6 @@ export default {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* การจัดการรีวิวการ์ด */
 .review-card {
   background-color: #fff;
   border-radius: 15px;
@@ -222,7 +215,6 @@ export default {
   font-size: 1rem;
 }
 
-/* การจัดการฟอร์ม */
 .review-form {
   background-color: #fff;
   padding: 25px;
@@ -277,5 +269,4 @@ textarea {
   background-color: #2980b9;
   transform: scale(1.05);
 }
-
 </style>

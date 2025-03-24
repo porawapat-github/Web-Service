@@ -7,7 +7,7 @@
         <!-- เลขห้อง -->
         <div class="form-group">
           <label for="roomId">เลขห้อง:</label>
-        <input type="text" required v-model="roomId" />
+          <input type="text" required v-model="roomId" />
         </div>
 
         <!-- ชั้น -->
@@ -15,7 +15,7 @@
           <label for="floor" class="form-label">ชั้น</label>
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-building"></i></span>
-            <select type="text"  class="form-control" v-model="floor" required>
+            <select type="text" class="form-control" v-model="floor" required>
               <option disabled value="">เลือกชั้น</option>
               <option value="1">1 ชั้น</option>
               <option value="2">2 ชั้น</option>
@@ -28,8 +28,15 @@
         <div class="form-group">
           <label for="roomName" class="form-label">ชื่อห้อง</label>
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-house-door"></i></span>
-            <select type="text"  class="form-control" v-model="roomName" required>
+            <span class="input-group-text"
+              ><i class="bi bi-house-door"></i
+            ></span>
+            <select
+              type="text"
+              class="form-control"
+              v-model="roomName"
+              required
+            >
               <option disabled value="">เลือกชื่อห้อง</option>
               <option value="Standard Room">Standard Room</option>
               <option value="Luxury Room">Luxury Room</option>
@@ -42,8 +49,15 @@
         <div class="form-group">
           <label for="roomStatus" class="form-label">สถานะห้อง</label>
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-lightbulb"></i></span>
-            <select type="text"  class="form-control" v-model="roomStatus" required>
+            <span class="input-group-text"
+              ><i class="bi bi-lightbulb"></i
+            ></span>
+            <select
+              type="text"
+              class="form-control"
+              v-model="roomStatus"
+              required
+            >
               <option disabled value="">เลือกสถานะห้อง</option>
               <option value="Free">Free</option>
               <option value="Full">Full</option>
@@ -56,7 +70,12 @@
           <label for="roomSize" class="form-label">ขนาดห้อง (จำนวนคน)</label>
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-people"></i></span>
-            <select type="text"  class="form-control" v-model="roomSize" required>
+            <select
+              type="text"
+              class="form-control"
+              v-model="roomSize"
+              required
+            >
               <option disabled value="">เลือกขนาดห้อง</option>
               <option value="1">1 คน</option>
               <option value="2">2 คน</option>
@@ -70,9 +89,11 @@
         <div class="form-group">
           <label for="roomDetail" class="form-label">รายละเอียดห้อง</label>
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
+            <span class="input-group-text"
+              ><i class="bi bi-info-circle"></i
+            ></span>
             <textarea
-              type="text" 
+              type="text"
               class="form-control"
               id="roomDetail"
               rows="3"
@@ -87,64 +108,49 @@
         <div class="form-group">
           <label for="roomPrice" class="form-label">ราคาห้อง</label>
           <div class="input-group">
-            
-        <input type="text" required v-model="roomPrice" />
+            <input type="text" required v-model="roomPrice" />
           </div>
         </div>
-
-        <!-- <label for="roomPicture">รูปภาพห้อง:</label> -->
-        <!-- <div class="card mt-5" style="width: 18rem" v-if="imageExists">
-          <img :src="`http://localhost:3000/img_room/${roomName}.jpg?timestamp=${imageTimestamp}`" :alt="roomName" />
-        </div> -->
-        <!-- <div class="card mt-5" style="width: 18rem" v-if="imageExists">
-          <img :src="imageSrc" alt="Uploaded Image" />
-        </div> -->
         <!-- รูปภาพห้อง -->
         <div class="form-group mb-4">
           <label for="roomPicture" class="form-label">รูปภาพห้อง</label>
           <div class="d-flex justify-content-center mt-4">
-            <div v-if="imageSrc" class="image-preview mb-3" style="width: 18rem">
-            <img :src="imageSrc" alt="Preview" class="preview-image" />
+            <div
+              v-if="imageSrc"
+              class="image-preview mb-3"
+              style="width: 18rem"
+            >
+              <img :src="imageSrc" alt="Preview" class="preview-image" />
+            </div>
           </div>
-          </div>
-          
         </div>
-        
-        
-        <!-- <div class="card mt-5" style="width: 18rem" v-else>
-          <img :src="`http://localhost:3000/img_room/default.jpg`" :alt="roomName" />
-        </div> -->
         <div class="form-group mb-4">
           <form @submit.prevent="uploadFile">
-            <input type="file" class="form-control"  id="roomPicture" @change="onFileChange" required />
+            <input
+              type="file"
+              class="form-control"
+              id="roomPicture"
+              @change="onFileChange"
+              required
+            />
             <div class="d-flex justify-content-center mt-4">
+              <button class="btn btn-xs btn-up" type="submit">Upload</button>
 
-              <button class="btn btn-xs btn-up" type="submit">
-                Upload
-              </button>
-
-              <button class="btn btn-xs btn-sub" type="submit" :disabled="!buttonDisable">
+              <button
+                class="btn btn-xs btn-sub"
+                type="submit"
+                :disabled="!buttonDisable"
+              >
                 บันทึก
               </button>
-              
+
               <router-link to="/AdminHome" style="text-decoration: none">
                 <button class="btn btn-xs btn-menu">Menu</button>
               </router-link>
-
             </div>
           </form>
         </div>
-          
-        
-        <!-- ปุ่มอัพโหลดและบันทึก -->
-        <!-- <div class="d-flex justify-content-center mt-4">
-          <button class="btn btn-xs btn-primary" type="submit" :disabled="!buttonDisable">บันทึก</button>
-        </div> -->
       </form>
-      <!-- <p v-if="backendMessage == 'success'" class="alert alert-success mt-3">
-        ลงทะเบียนสำเร็จ-{{ backendMessage }}</p>
-      <p v-else-if="backendMessage == 'fail'" class="alert alert-danger mt-3">
-        ลงทะเบียนผิดพลาด-{{ backendMessage }}</p> -->
     </div>
   </div>
 </template>
@@ -164,15 +170,16 @@ export default {
       roomDetailn: null,
       roomPrice: null,
       roomStatus: null,
-      backendMessage: null,// ข้อมูลห้องที่จะทำการแก้ไข
+      backendMessage: null, // ข้อมูลห้องที่จะทำการแก้ไข
       imageExists: false,
       fileMessage: null,
       file: null,
       imageTimestamp: Date.now(), // ใช้เป็น query parameter
       imageSrc: null,
-      buttonDisable: false
+      buttonDisable: false,
     };
-  }, async mounted() {
+  },
+  async mounted() {
     this.checkImage();
   },
   methods: {
@@ -182,38 +189,13 @@ export default {
     // ทำการ Uploadfile เมื่อถูกSubmit
     async uploadFile() {
       const file = this.file;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      this.imageExists = true;
-      this.imageSrc = e.target.result;
-  };
-  reader.readAsDataURL(file);
-  this.buttonDisable = true;
-      // if (!this.file) {
-      //   this.fileMessage = "เลือก File ก่อน";
-      //   return;
-      // }
-      // // อ่านค่าจาก Form เพื่อ POST
-      // const formData = new FormData();
-      // formData.append("file", this.file);
-      // // กำหนด endpoint และกำหนด Header ว่าเป็นการส่ง file
-      // try {
-      //   const response = await axios.post(
-      //     `http://localhost:3000/admin/uploadRoomImage/${this.roomName}`,
-      //     formData,
-      //     {
-      //       headers: {
-      //         "Content-Type": "multipart/form-data",
-      //       },
-      //     }
-      //   );
-      //   this.fileMessage = response.data.message;
-      //   // ให้ทำการตรวจสอบ image อีกครั้ง
-      //   this.checkImage();
-      //   this.imageTimestamp = Date.now();
-      // } catch (err) {
-      //   this.fileMessage = "fail";
-      // }
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.imageExists = true;
+        this.imageSrc = e.target.result;
+      };
+      reader.readAsDataURL(file);
+      this.buttonDisable = true;
     },
     async uploadTrueFile() {
       console.log(this.roomId + " " + this.roomName);
@@ -246,7 +228,7 @@ export default {
     },
     checkImage() {
       // console.log("Is Success " + this.imageExists);
-      console.log(this.roomId+this.roomName);
+      console.log(this.roomId + this.roomName);
       const image = new Image();
       image.src = `http://localhost:3000/img_room/${this.roomId}_${this.roomName}.jpg`;
       image.onload = () => {
@@ -255,7 +237,7 @@ export default {
         this.imageExists = true;
         console.log("Is Success " + this.imageExists);
       };
-      
+
       image.onerror = () => {
         // รูปภาพไม่สามารถโหลดได้
         console.log("Is Success " + this.imageExists);
@@ -267,25 +249,28 @@ export default {
         roomId: this.roomId,
         floor: this.floor,
         roomName: this.roomName,
-        roomStatus:this.roomStatus,
+        roomStatus: this.roomStatus,
         roomSize: this.roomSize,
         roomDetail: this.roomDetail,
         roomPrice: this.roomPrice,
       };
       try {
         console.log("is this room id" + this.roomId);
-        const response = await axios.post(`http://localhost:3000/admin/addRoom`, rooms);
+        const response = await axios.post(
+          `http://localhost:3000/admin/addRoom`,
+          rooms
+        );
         console.log(this.roomId);
         console.log(this.roomName);
-        console.log(this.floor)
+        console.log(this.floor);
         console.log(this.roomSize);
         console.log(this.roomDetail);
         console.log(this.roomPrice);
         console.log(this.roomStatus);
         this.backendMessage = response.data.messageAddRoom;
         if (this.backendMessage == "success") {
-          this.uploadTrueFile()
-          this.$router.push('/ManageRoom')
+          this.uploadTrueFile();
+          this.$router.push("/ManageRoom");
         }
       } catch (err) {
         console.log(err);
@@ -296,7 +281,6 @@ export default {
 </script>
 
 <style scoped>
-
 .add-room-page {
   display: flex;
   justify-content: center;
@@ -372,10 +356,9 @@ textarea.form-control {
   font-size: 1.3rem;
   padding: 10px 20px;
   width: auto;
-  
 }
 
-.btn-menu{
+.btn-menu {
   background-color: #4486e9;
 }
 

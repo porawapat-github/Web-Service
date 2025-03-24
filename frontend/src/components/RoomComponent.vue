@@ -55,7 +55,6 @@
           <div class="circle"></div>
         </div>
       </button>
-
     </div>
 
     <!-- ส่วนของแสดงห้องพัก -->
@@ -75,54 +74,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ฟอร์มการจอง -->
-    <!-- <div v-if="selectedRoom" class="booking-form">
-      <h3>Booking for {{ selectedRoom.name }}</h3>
-      <form @submit.prevent="submitBooking">
-        <div class="form-group">
-          <label for="fullName">Full Name:</label>
-          <input
-            type="text"
-            v-model="booking.fullName"
-            id="fullName"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" v-model="booking.email" id="email" required />
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone Number:</label>
-          <input type="tel" v-model="booking.phone" id="phone" required />
-        </div>
-
-        <div class="form-group">
-          <label for="checkinDate">Check-in Date:</label>
-          <input
-            type="date"
-            v-model="booking.checkinDate"
-            id="checkinDate"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="checkoutDate">Check-out Date:</label>
-          <input
-            type="date"
-            v-model="booking.checkoutDate"
-            id="checkoutDate"
-            required
-          />
-        </div>
-
-        <button type="submit" class="btn-submit">Confirm Booking</button>
-      </form>
-    </div> -->
   </div>
 </template>
 
@@ -134,11 +85,6 @@ export default {
   data() {
     return {
       rooms: [],
-      // filters: {
-      //   checkin: "",
-      //   checkout: "",
-      //   guests: 1,
-      // },
       selectNameRoom: null, // เก็บค่าที่เลือกจาก dropdown
       selectSize: null,
       selectFloor: null,
@@ -164,15 +110,6 @@ export default {
         { value: "3", text: "3" },
         { value: "4", text: "4" },
       ],
-      //   filteredRooms: [],
-      //   selectedRoom: null,
-      //   booking: {
-      //     fullName: "",
-      //     email: "",
-      //     phone: "",
-      //     checkinDate: "",
-      //     checkoutDate: "",
-      //   },
     };
   },
   mounted() {
@@ -215,17 +152,6 @@ export default {
           console.error(err);
         });
     },
-    // bookRoom(room) {
-    //   this.selectedRoom = room;
-    //   this.booking.checkinDate = this.filters.checkin;
-    //   this.booking.checkoutDate = this.filters.checkout;
-    // },
-    // submitBooking() {
-    //   alert(
-    //     `Booking confirmed for ${this.booking.fullName} in ${this.selectedRoom.name}`
-    //   );
-    //   this.selectedRoom = null;
-    // },
     clear() {
       this.selectNameRoom = null;
       this.selectSize = null;
@@ -282,12 +208,6 @@ select:focus {
   border-radius: 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-
-/* .filter-group {
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-} */
 
 .dropdown-container {
   display: flex;
@@ -422,7 +342,7 @@ label {
 
 /* ------------------------------------------ btn-search ------------------------------------------*/
 
-/* From Uiverse.io by StealthWorm */ 
+/* From Uiverse.io by StealthWorm */
 .btn {
   display: flex;
   justify-content: center;

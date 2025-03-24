@@ -1,91 +1,77 @@
 <template>
-  <!-- nav bar -->
-  <header class="navmain">
-    <div class="container">
-      <nav>
-        <!-- Branding -->
-        <div class="login-logo">
-          <router-link to="/" class="navbar-brand float-left">
-            <img src="./assets/image/logo.png" alt="Logo" />
-            <!-- <h5>Travel</h5> -->
-          </router-link>
-        </div>
-        <!-- Navigation Links -->
-        <ul class="main-menu">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">HOME</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/room" class="nav-link">ROOMS</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/myroom" class="nav-link">MY ROOM</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/review" class="nav-link">REVIEW</router-link>
-          </li>
-        </ul>
-
-        <ul class="account-menu">
-          <li class="nav-item">
-            <router-link to="/pageMember" style="text-decoration: none">
-              <div class="nav-link fw-bold">{{ memName }}</div>
+  <div>
+    <!-- nav bar -->
+    <header class="navmain">
+      <div class="container">
+        <nav>
+          <!-- Branding -->
+          <div class="login-logo">
+            <router-link to="/" class="navbar-brand float-left">
+              <img src="./assets/image/logo.png" alt="Logo" />
+              <!-- <h5>Travel</h5> -->
             </router-link>
-          </li>
-          <li class="nav-item" v-if="memName == null">
-            <router-link to="/login" class="nav-link">LOGIN</router-link>
-          </li>
-          <li class="nav-item" v-else>
-            <a href="#" @click="memlogout" style="text-decoration: none">
-              <div class="nav-link">LOGOUT</div>
-            </a>
-          </li>
-          <li class="nav-item" v-if="role == 'admin'">
-            <router-link to="/ManageRoom" style="text-decoration: none">
-              <a class="nav-link" href="#">Manage Rooms</a></router-link
-            >
-          </li>
-          <li class="nav-item" v-if="role == 'admin'">
-            <router-link to="/ManageReview" style="text-decoration: none">
-              <a class="nav-link" href="#">Manage Reviews</a></router-link
-            >
-          </li>
-          <li class="nav-item" v-else>
-            <a href="#" style="text-decoration: none">
-              <div class="nav-link"></div>
-            </a>
-          </li>
-        </ul>
-
-
-        <!-- <li class="nav-item">
-              <router-link to="/register" class="nav-link"
-                >สมัครสมาชิก</router-link
-              >
+          </div>
+          <!-- Navigation Links -->
+          <ul class="main-menu">
+            <li class="nav-item">
+              <router-link to="/" class="nav-link">HOME</router-link>
             </li>
             <li class="nav-item">
-              <i class="bi bi-list">
-                <ul>
-                  <li class="nav-item">
-                    <router-link to="/admin" class="nav-link">Admin</router-link>
-                  </li>
-                </ul>
-              </i>
-            </li> -->
-      </nav>
-    </div>
-  </header>
+              <router-link to="/room" class="nav-link">ROOMS</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/myroom" class="nav-link">MY ROOM</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/review" class="nav-link">REVIEW</router-link>
+            </li>
+          </ul>
 
-  <!-- Router view -->
-  <div class="container mt-5">
-    <router-view></router-view>
+          <ul class="account-menu">
+            <li class="nav-item">
+              <router-link to="/pageMember" style="text-decoration: none">
+                <div class="nav-link fw-bold">{{ memName }}</div>
+              </router-link>
+            </li>
+            <li class="nav-item" v-if="memName == null">
+              <router-link to="/login" class="nav-link">LOGIN</router-link>
+            </li>
+            <li class="nav-item" v-else>
+              <a href="#" @click="memlogout" style="text-decoration: none">
+                <div class="nav-link">LOGOUT</div>
+              </a>
+            </li>
+            <li class="nav-item" v-if="role == 'admin'">
+              <router-link to="/ManageRoom" style="text-decoration: none">
+                <a class="nav-link" href="#">Manage Rooms</a></router-link
+              >
+            </li>
+            <li class="nav-item" v-if="role == 'admin'">
+              <router-link to="/ManageReview" style="text-decoration: none">
+                <a class="nav-link" href="#">Manage Reviews</a></router-link
+              >
+            </li>
+            <li class="nav-item" v-else>
+              <a href="#" style="text-decoration: none">
+                <div class="nav-link"></div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Router view -->
+    <div class="container mt-5">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 import { EventBus } from "@/event-bus";
 import axios from "axios";
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true; // สำหรับให้สามารถอ่านค่าจาก cookie ได้
 export default {
   name: "MainMenu",
   data() {

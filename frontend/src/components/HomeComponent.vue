@@ -1,25 +1,25 @@
 <template>
-<header class="black">
-  <header>
-    <div class="container">
-      <div class="header-info">
-        <!-- ส่วนหัวของ title -->
-        <div class="about-title">
-          <h3>Welcome to the cutting edge of innovation</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
-            assumenda quibusdam earum error repellendus culpa sit doloribus
-            doloremque, dolore cumque architecto accusantium ratione
-            necessitatibus minima ipsum voluptas modi, vel, eveniet officiis
-            unde. Minima, iste tenetur?
-          </p>
+  <header class="black">
+    <header>
+      <div class="container">
+        <div class="header-info">
+          <!-- ส่วนหัวของ title -->
+          <div class="about-title">
+            <h3>Welcome to the cutting edge of innovation</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+              assumenda quibusdam earum error repellendus culpa sit doloribus
+              doloremque, dolore cumque architecto accusantium ratione
+              necessitatibus minima ipsum voluptas modi, vel, eveniet officiis
+              unde. Minima, iste tenetur?
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="header-backgroud">
-    <div class="container">
+    <div class="header-backgroud">
+      <div class="container">
         <section class="process-step">
           <div class="image-container">
             <img
@@ -79,18 +79,12 @@
             <p>From imagination to real room decoration</p>
           </div>
         </section>
-
-      <!-- <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div> -->
+      </div>
     </div>
-  </div>
-</header>
-  
+  </header>
 </template>
 
 <script>
-
 import axios from "axios";
 axios.defaults.withCredentials = true;
 export default {
@@ -101,26 +95,6 @@ export default {
       role: null,
       backendMessage: null,
     };
-  },
-  mounted() {
-    // this.chkSession();    
- 
-  },
-
-  methods: {
-    // async chkSession() {
-    //   try {
-    //     await axios.get(`http://localhost:3000/session`).then((res) => {
-    //       this.memEmail = res.data.email;
-    //       this.memName = res.data.name;
-    //       this.role = res.data.role;
-    //       // sessionStorage.setItem("memName", res.data.name);
-    //     });
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // },
-    
   },
 };
 </script>
@@ -239,8 +213,4 @@ p {
     padding: 10px;
   }
 }
-
-/* .black {
-  background-color: #ffff;
-} */
 </style>

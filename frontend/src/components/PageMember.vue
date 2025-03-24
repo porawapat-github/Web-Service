@@ -3,10 +3,9 @@
     <h1 class="topic">My Profile</h1>
     <div class="row-profile">
       <div class="con-profile">
-
         <!-- รูปโปรไฟล์ -->
         <div class="profile-image mt-5">
-          <div class="card" style="width: 50rem ,height" v-if="imageExists">
+          <div class="card" style="width: 50rem, height" v-if="imageExists">
             <img
               :src="`http://localhost:3000/img_mem/${username}.jpg?timestamp=${imageTimestamp}`"
               :alt="username"
@@ -52,7 +51,6 @@
             Cancel
           </button>
         </div>
-
       </form>
     </div>
 
@@ -109,23 +107,11 @@
           type="text"
           class="reviewComment"
           v-model="review.comment"
-          style="height: 100px; width: 800px;"
+          style="height: 100px; width: 800px"
         ></textarea>
         <p v-else class="reviewComment">{{ review.comment }}</p>
       </div>
       <br />
-
-      <!-- <span :contenteditable="isEditing" @blur="isEditing = false" v-text="review.score + '/5'"></span>
-      <br>
-    <span :contenteditable="isEditing" @blur="isEditing = false" v-text="review.comment"></span>
-    <br> -->
-      <!-- <input v-if="isEditing" type="number" v-model="review.score" min="1" max="5">
-    <span v-else>{{ review.score }}/5</span> -->
-
-      <!-- <input v-if="isEditing" type="text" v-model="review.comment"> -->
-      <!-- <span v-else>{{ review.comment }}</span> -->
-      <!-- <button v-if="!isEditing" @click="isEditing = true">Edit</button> -->
-      <!-- <button v-else @click="saveChanges">OK</button> -->
 
       <small class="review-date"
         >Reviewed on
@@ -145,8 +131,6 @@
         </button>
       </div>
 
-      <!-- <button v-else class="btn btn-primary" @click="isEditing=false">แก้ไข</button> -->
-      <!-- <button v-else class="btn btn-primary" @click="saveChanges(review)">save</button> -->
       <button
         v-if="isEditing[index] == index"
         class="btn btn-primary"
@@ -186,13 +170,7 @@
     </div>
     <div class="col-auto"></div>
   </div>
-
-  <!-- <span :contenteditable="isEditing" @blur="isEditing = false" v-text="rating + '/5'"></span>
-    <span :contenteditable="isEditing" @blur="isEditing = false" v-text="comment"></span>
-    <button @click="isEditing = true">Edit</button> -->
 </template>
- 
- 
 <script>
 import axios from "axios"; //1.import axios มาใช้งาน
 import { EventBus } from "@/event-bus";
@@ -231,11 +209,7 @@ export default {
       this.oldScore = reviewScore;
       this.oldComment = reviewComment;
     },
-    // scoreFunc(reviewScore) {
-    //   this.oldScore = this.reviews[0].score;
-    //   console.log(this.newScore);
 
-    // },
     saveChanges(reviewData, index) {
       let reviewSendData = {
         reviewId: reviewData.reviewId,
@@ -373,9 +347,8 @@ export default {
   },
 };
 </script>
- 
-<style scoped>
 
+<style scoped>
 .profile-page {
   padding: 30px;
   border-radius: 30px;

@@ -1,11 +1,10 @@
 <template>
   <div class="manage-review-page container">
-    
-      <div class=" justify-content-center">
-        <h1 class="page-title">Manage Review</h1>
-        <p class="page-description">This is the Manage Review page.</p>
-      </div>
-    
+    <div class="justify-content-center">
+      <h1 class="page-title">Manage Review</h1>
+      <p class="page-description">This is the Manage Review page.</p>
+    </div>
+
     <router-link to="/AdminHome" style="text-decoration: none">
       <button class="btn btn-xs btn-primary mb-3">Menu</button>
     </router-link>
@@ -13,33 +12,42 @@
     <div v-if="reviews.length === 0" class="no-review-message">
       <p>No Reviews</p>
     </div>
-    
-    
-      <div class="review-list mt-5">
-        <div class="review-card" v-for="review in reviews" :key="review.id">
-          <div class="review-user-info">
-            <img :src="`http://localhost:3000/img_mem/${review.username}.jpg`" alt="User Avatar" class="avatar rounded-circle" />
-            <div class="review-user-details">
-              <h3 class="username">{{ review.username }}</h3>
-              <div class="rating">
-                <span
-                  v-for="n in 5"
-                  :key="n"
-                  class="star"
-                  :class="{ filled: n <= review.score }"
-                  >★</span
-                >
-              </div>
+
+    <div class="review-list mt-5">
+      <div class="review-card" v-for="review in reviews" :key="review.id">
+        <div class="review-user-info">
+          <img
+            :src="`http://localhost:3000/img_mem/${review.username}.jpg`"
+            alt="User Avatar"
+            class="avatar rounded-circle"
+          />
+          <div class="review-user-details">
+            <h3 class="username">{{ review.username }}</h3>
+            <div class="rating">
+              <span
+                v-for="n in 5"
+                :key="n"
+                class="star"
+                :class="{ filled: n <= review.score }"
+                >★</span
+              >
             </div>
           </div>
-          <p class="review-comment">{{ review.comment }}</p>
-          <small class="review-date">Reviewed on {{ new Date(review.reviewDate).toLocaleDateString() }}
-            <div class="d-flex justify-content-center">
-              <button @click="deleteReview(review.reviewId,review.username)" class="btn btn-xs btn-danger mt-2">Delete</button>
-            </div>
-          </small>
         </div>
+        <p class="review-comment">{{ review.comment }}</p>
+        <small class="review-date"
+          >Reviewed on {{ new Date(review.reviewDate).toLocaleDateString() }}
+          <div class="d-flex justify-content-center">
+            <button
+              @click="deleteReview(review.reviewId, review.username)"
+              class="btn btn-xs btn-danger mt-2"
+            >
+              Delete
+            </button>
+          </div>
+        </small>
       </div>
+    </div>
   </div>
 </template>
  
@@ -81,14 +89,12 @@ export default {
         this.reviews = res.data;
       });
     },
-   deleteReview(id, username) {
+    deleteReview(id, username) {
       console.log(id);
       const cf = window.confirm("ต้องการลบความคิดเห็นนี้?");
       if (cf) {
         axios
-          .delete(
-            `http://localhost:3000/myReview/${username}/${id}`
-          )
+          .delete(`http://localhost:3000/myReview/${username}/${id}`)
           .then((res) => {
             console.log(res);
             this.allReviews();
@@ -98,19 +104,11 @@ export default {
           });
       }
     },
-    // this.$router.push({ name: 'EditRoom', params: {data: JSON.stringify(roomId)} });
   },
 };
 </script>
  
 <style scoped>
-/* .manage-review {
-  max-width: 1400px;
-  border-radius: 10px;
-  background: linear-gradient(45deg, #ffffff, #a9bbff, #cbf3ff);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-} */
-
 .manage-review-page {
   padding: 20px;
   padding: 20px;

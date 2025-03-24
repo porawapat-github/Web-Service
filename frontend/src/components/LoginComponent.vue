@@ -28,12 +28,6 @@
             placeholder="Enter your password"
           />
         </div>
-        <!-- <div class="form-options">
-          <label class="checkbox">
-            <input type="checkbox" v-model="rememberMe" /> จดจำรหัสผ่าน
-          </label>
-          <a href="#" class="forgot-password">ลืมรหัสผ่าน</a>
-        </div> -->
         <button type="submit" class="btn">เข้าสู่ระบบ</button>
         <div class="register-link">
           ยินดีต้อนรับทุกท่าน
@@ -91,10 +85,6 @@ export default {
             EventBus.emit("loginok");
             this.$router.push("/");
           }
-          // console.log(this.backendMessage);
-          // EventBus.emit("loginok");
-          // this.$router.push("/ManageRoom");
-          // this.$router.push("/admin");
         } else {
           console.log("login error");
         }
@@ -102,7 +92,7 @@ export default {
         console.log(err);
       }
     },
- 
+
     async chkSession() {
       try {
         await axios.get(`http://localhost:3000/session`).then((res) => {
@@ -111,11 +101,6 @@ export default {
           this.role = res.data.role;
           sessionStorage.setItem("memName", res.data.name);
           sessionStorage.setItem("role", res.data.role);
-          // if (res.data.role === "member") {
-          //   sessionStorage.removeItem("role");
-          // } else {
-          //   this.role = res.data.role;
-          // }
         });
       } catch (err) {
         console.log(err);
@@ -132,19 +117,19 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
- 
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #eef2f7;
 }
- 
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
 }
- 
+
 .login-card {
   background-color: #f2f6fc;
   padding: 40px;
@@ -154,35 +139,35 @@ body {
   max-width: 500px;
   text-align: center;
 }
- 
+
 .login-logo img {
   width: 60px;
   margin-bottom: 10px;
 }
- 
+
 .login-logo h2 {
   margin: 10px 0;
   color: #2c3e50;
   font-weight: 600;
 }
- 
+
 .login-logo p {
   color: #95a5a6;
   font-size: 14px;
 }
- 
+
 .form-group {
   margin-bottom: 15px;
   text-align: left;
 }
- 
+
 .form-group label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
   color: #2c3e50;
 }
- 
+
 .form-group input {
   width: 100%;
   padding: 12px;
@@ -191,7 +176,7 @@ body {
   font-size: 16px;
   background-color: #f7f9fc;
 }
- 
+
 .form-options {
   display: flex;
   justify-content: space-between;
@@ -199,20 +184,20 @@ body {
   margin-bottom: 20px;
   font-size: 14px;
 }
- 
+
 .checkbox input {
   margin-right: 8px;
 }
- 
+
 .forgot-password {
   color: #3498db;
   text-decoration: none;
 }
- 
+
 .forgot-password:hover {
   text-decoration: underline;
 }
- 
+
 .btn {
   width: 100%;
   background-color: #3498db;
@@ -225,21 +210,21 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
- 
+
 .btn:hover {
   background-color: #2980b9;
 }
- 
+
 .register-link {
   margin-top: 20px;
   font-size: 14px;
 }
- 
+
 .register-link a {
   color: #3498db;
   text-decoration: none;
 }
- 
+
 .register-link a:hover {
   text-decoration: underline;
 }
